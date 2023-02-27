@@ -1,0 +1,21 @@
+datasource bot {
+  provider = "mysql"
+  url      = "mysql://root:root@localhost:3306/bot"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Arbitrage {
+  id                Int      @id @default(autoincrement())
+  pair              String
+  buy_exchange      String
+  sell_exchange     String
+  buy_price         Float
+  sell_price        Float
+  profit_pct        Float
+  quantity          Float
+  status            String
+  created_at        DateTime @default(now())
+}
